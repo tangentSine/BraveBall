@@ -1,13 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LayerSwitcher.cs">
     <Files>
-      <File FileName="Assets/GameManager.cs" Line="45" Column="63" />
-      <File FileName="Assets/Flipper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Curve.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Editor/CurveEditor.cs" Line="13" Column="18" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/Flipper.cs" Line="40" Column="2" />
+      <File FileName="Assets/Scripts/LayerSwitcher.cs" Line="46" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/tanjianxin/Documents/Pinkball/Assets/Scripts/GameManager.cs" line="27" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

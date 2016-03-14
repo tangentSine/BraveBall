@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]float 				_launchForce;
 
+	[SerializeField]GameObject[]		_layerObjects;
+
 	// Use this for initialization
 	void Start () {
 	
