@@ -40,12 +40,12 @@ public class Flipper : MonoBehaviour {
 	public void Swing()
 	{
 		isSwinging = true;
-		Debug.Log ("Swing l");
+//		Debug.Log ("Swing l");
 	}
 
 	public void SwingBack()
 	{
 		isSwinging = false;
-		Debug.Log ("Swing back");
+//		Debug.Log ("Swing back");
 	}
 }

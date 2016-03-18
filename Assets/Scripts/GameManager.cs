@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]Flipper				_flipperLeft;
 	[SerializeField]Flipper				_flipperRight;
+	[SerializeField]Flipper				_flipperLeftTop;
+	[SerializeField]Flipper				_flipperRightTop;
 
 	[SerializeField]GameObject			_ballObject;
 
@@ -14,7 +16,9 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		_layerObjects [0].SetActive (true);
+		_layerObjects [1].SetActive (false);
+		_layerObjects [2].SetActive (false);
 	}
 
 	// Update is called once per frame
@@ -25,21 +29,25 @@ public class GameManager : MonoBehaviour {
 	public void OnLeftFlipperDown()
 	{
 		_flipperLeft.Swing ();
+		_flipperLeftTop.Swing ();
 	}
 
 	public void OnLeftFlipperUp()
 	{
 		_flipperLeft.SwingBack ();
+		_flipperLeftTop.SwingBack ();
 	}
 
 	public void OnRightFlipperDown()
 	{
 		_flipperRight.Swing ();
+		_flipperRightTop.Swing ();
 	}
 
 	public void OnRightFlipperUp()
 	{
 		_flipperRight.SwingBack ();
+		_flipperRightTop.SwingBack ();
 	}
 
 	public void OnSpringUp()
