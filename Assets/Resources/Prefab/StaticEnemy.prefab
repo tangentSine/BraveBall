@@ -27,8 +27,8 @@ BoxCollider2D:
   m_GameObject: {fileID: 143020}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 20, y: 20}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11443020
 MonoBehaviour:
@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8aef07055c5442f9236e8293b50803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 11486006}
 --- !u!114 &11486006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,14 +76,14 @@ RectTransform:
   m_GameObject: {fileID: 143020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 35, y: 35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 385.100006, y: -12.3999996}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: -.200000003, y: 97.3000031}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

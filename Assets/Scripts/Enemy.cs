@@ -3,7 +3,11 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	public int hp;
+	protected int hp;
+
+	protected Element element;
+
+	protected float invincibleTime;
 
 	public enum EnemyType
 	{
@@ -11,6 +15,15 @@ public class Enemy : MonoBehaviour {
 		Skeleton,
 	};
 
+	public enum Element
+	{
+		Fire,
+		Water,
+		Thunder,
+		Earth,
+		Light,
+		Dark
+	};
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +40,7 @@ public class Enemy : MonoBehaviour {
 
 	}
 	
-	void OnTriggerEnter2D(Collider2D other)
+	protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
 		TakeDamage (1);
 	}
@@ -37,5 +50,21 @@ public class Enemy : MonoBehaviour {
 		hp-= dmg;
 		if (hp <= 0)
 			Destroy (gameObject);
+		else {
+			if (collider2D != null){
+				collider2D.enabled = false;
+				StartCoroutine (EnableCollider(invincibleTime));
+			}
+		}
+	}
+
+	
+	protected virtual IEnumerator EnableCollider(float time)
+	{
+		yield return new WaitForSeconds (time);
+
+		if (collider2D != null){
+			collider2D.enabled = true;
+		}
 	}
 }
