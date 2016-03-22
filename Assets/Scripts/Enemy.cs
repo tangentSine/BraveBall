@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Element
+{
+	Fire,
+	Water,
+	Thunder,
+	Earth,
+	Light,
+	Dark
+};
 public class Enemy : MonoBehaviour {
 
 	protected int hp;
@@ -9,21 +18,14 @@ public class Enemy : MonoBehaviour {
 
 	protected float invincibleTime;
 
+	[SerializeField]int layer;
+
 	public enum EnemyType
 	{
 		Slime,
 		Skeleton,
 	};
 
-	public enum Element
-	{
-		Fire,
-		Water,
-		Thunder,
-		Earth,
-		Light,
-		Dark
-	};
 
 	// Use this for initialization
 	void Start () {
@@ -42,14 +44,16 @@ public class Enemy : MonoBehaviour {
 	
 	protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
-		TakeDamage (1);
+		Ball ball = other.GetComponent<Ball> ();
+		if (ball != null && ball.layer != layer)
+			TakeDamage (ball.damage);
 	}
 
 	protected virtual void TakeDamage(int dmg)
 	{
 		hp-= dmg;
 		if (hp <= 0)
-			Destroy (gameObject);
+			OnDestroyed ();
 		else {
 			if (collider2D != null){
 				collider2D.enabled = false;
@@ -58,6 +62,10 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
+	protected virtual void OnDestroyed()
+	{
+		Destroy (gameObject);
+	}
 	
 	protected virtual IEnumerator EnableCollider(float time)
 	{
