@@ -1,15 +1,24 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StaticEnemy.cs">
     <Files>
-      <File FileName="Assets/Scripts/LayerSwitcher.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LayerSwitcher.cs" Line="63" Column="3" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Flipper.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ScoreAdder.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="13" Column="3" />
-      <File FileName="Assets/Scripts/StaticEnemy.cs" Line="36" Column="20" />
-      <File FileName="Assets/Scripts/BallCatcher.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="61" Column="20" />
+      <File FileName="Assets/Scripts/StaticEnemy.cs" Line="22" Column="25" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="StaticEnemy.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

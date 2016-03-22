@@ -7,16 +7,20 @@ public class StaticEnemy : Enemy {
 	[SerializeField]RawImage image;
 
 	bool isDefault = true;
+	bool isPlayingAnimation;
 
 	void Start () {
 	
+		isPlayingAnimation = false;
 		if (isDefault)
 			Initialize (EnemyType.Skeleton);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (isPlayingAnimation == true && animation.isPlaying == false) {
+			Destroy (gameObject);
+		}
 	}
 
 	public void Initialize(EnemyType enemyType)
@@ -40,6 +44,11 @@ public class StaticEnemy : Enemy {
 		yield return new WaitForSeconds (time);
 		StartCoroutine (base.EnableCollider (0));
 		image.color = Color.white;
+	}
+
+	protected override void OnDestroyed(){
+		animation.Play ();
+			isPlayingAnimation = true;
 	}
 }
 
