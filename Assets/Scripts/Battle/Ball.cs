@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		layer = 0;
+		damage = 1;
 	}
 	
 	// Update is called once per frame

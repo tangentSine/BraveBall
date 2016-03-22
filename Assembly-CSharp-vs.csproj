@@ -46,15 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Ball.cs" />
-     <Compile Include="Assets\Scripts\BallCatcher.cs" />
-     <Compile Include="Assets\Scripts\Curve.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Flipper.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\LayerSwitcher.cs" />
-     <Compile Include="Assets\Scripts\ScoreAdder.cs" />
-     <Compile Include="Assets\Scripts\StaticEnemy.cs" />
+     <Compile Include="Assets\Scripts\Battle\Ball.cs" />
+     <Compile Include="Assets\Scripts\Battle\BallCatcher.cs" />
+     <Compile Include="Assets\Scripts\Battle\Curve.cs" />
+     <Compile Include="Assets\Scripts\Battle\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Battle\Flipper.cs" />
+     <Compile Include="Assets\Scripts\Battle\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Battle\LayerSwitcher.cs" />
+     <Compile Include="Assets\Scripts\Battle\ScoreAdder.cs" />
+     <Compile Include="Assets\Scripts\Battle\ScoreFx.cs" />
+     <Compile Include="Assets\Scripts\Battle\StaticEnemy.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity_v467/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.7/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>

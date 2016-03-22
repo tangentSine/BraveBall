@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &180548
+--- !u!1 &137072
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 224: {fileID: 22480548}
+  - 224: {fileID: 22437072}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -15,80 +15,79 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &180550
+--- !u!1 &137074
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 224: {fileID: 22480550}
-  - 114: {fileID: 11480550}
-  - 58: {fileID: 5880550}
+  - 224: {fileID: 22437074}
+  - 58: {fileID: 5837074}
+  - 114: {fileID: 11437074}
   m_Layer: 5
-  m_Name: LayerSwitcher
+  m_Name: ScoreAdder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &5880550
+--- !u!58 &5837074
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 180550}
+  m_GameObject: {fileID: 137074}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Radius: 8.73999977
   m_Center: {x: 0, y: 0}
---- !u!114 &11480550
+--- !u!114 &11437074
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 180550}
+  m_GameObject: {fileID: 137074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87ce3be4d6eb54b9aa65b263f7bdb442, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b1233593d258482cb57b30acbb213b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fromLayer: {fileID: 0}
-  toLayer: {fileID: 0}
---- !u!224 &22480548
+  scoreToAdd: 0
+--- !u!224 &22437072
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 180548}
+  m_GameObject: {fileID: 137072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22480550}
+  m_Father: {fileID: 22437074}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 9, y: -12.6000004}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
---- !u!224 &22480550
+--- !u!224 &22437074
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 180550}
+  m_GameObject: {fileID: 137074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 22480548}
+  - {fileID: 22437072}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 102.300003, y: -73.6999969}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
@@ -100,6 +99,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 180550}
+  m_RootGameObject: {fileID: 137074}
   m_IsPrefabParent: 1
   m_IsExploded: 1
