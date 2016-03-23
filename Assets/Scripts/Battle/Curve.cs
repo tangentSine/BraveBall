@@ -5,12 +5,18 @@ using System.Collections.Generic;
 public class Curve : MonoBehaviour {
 	[SerializeField]Vector3[] anchorPoints;
 	[SerializeField]int slices;
+	[SerializeField]BuildMode currentBuildMode;
 
+	public enum BuildMode
+	{
+		Normal,
+		Bumper
+	}
 
 
 	// Use this for initialization
 	void Start () {
-	
+		currentBuildMode = BuildMode.Normal;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +38,7 @@ public class Curve : MonoBehaviour {
 		List<Vector3> list = new List<Vector3> ();
 		for (int i = 0; i < transform.childCount; ++i){
 			Transform child = transform.GetChild (i);
-			list.Add (child.localPosition);
+			list.Add (child.position);
 		}
 
 		for (int count = 0; count <= slices; ++count) {
@@ -53,7 +59,7 @@ public class Curve : MonoBehaviour {
 		
 		Gizmos.color = Color.red;
 		for (int i = 0; i < outputList.Count-1; ++i) {
-			Gizmos.DrawLine (transform.localPosition+outputList[i], transform.localPosition+outputList[i+1]);
+			Gizmos.DrawLine (outputList[i], outputList[i+1]);
 		}
 	}
 
@@ -63,7 +69,7 @@ public class Curve : MonoBehaviour {
 		List<Vector3> list = new List<Vector3> ();
 		for (int i = 0; i < transform.childCount; ++i){
 			Transform child = transform.GetChild (i);
-			list.Add (child.transform.localPosition);
+			list.Add (child.localPosition);
 		}
 		
 		for (int count = 0; count <= slices; ++count) {
@@ -95,7 +101,12 @@ public class Curve : MonoBehaviour {
 	}
 
 	void CreateWall(Vector3 from, Vector3 to, int thickness){
-		GameObject obj = Instantiate (Resources.Load ("Prefab/OverlapWall")) as GameObject;
+		GameObject obj;
+		if (currentBuildMode == BuildMode.Normal)
+			obj = Instantiate (Resources.Load ("Prefab/Battle/OverlapWall")) as GameObject;
+		else
+			obj = Instantiate (Resources.Load ("Prefab/Battle/BumperWall")) as GameObject;
+
 		obj.transform.SetParent (transform.parent);
 		Vector3 vec = to - from;
 

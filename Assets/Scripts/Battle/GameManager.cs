@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour {
 		_scoreText.text = "Score: " + _score;
 
 		GameObject scoreObj = Instantiate (Resources.Load ("Prefab/Battle/AddScore")) as GameObject;
-		scoreObj.transform.position = pos;
+		scoreObj.transform.localPosition = pos;
 		scoreObj.transform.SetParent (_fxLayer.transform, false);
 
 		ScoreFx scoreFx = scoreObj.GetComponent<ScoreFx>();

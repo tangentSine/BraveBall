@@ -37,7 +37,7 @@ public class ScoreAdder : MonoBehaviour {
 		Vector3 myDir = transform.GetChild (0).localPosition;
 		
 		if (Vector3.Dot (v, myDir) > 0) {
-			GameManager.Get().AddScore (scoreToAdd, (startPos+other.transform.localPosition)/2);
+			GameManager.Get().AddScore (scoreToAdd, transform.localPosition);
 		} 
 	}
 
