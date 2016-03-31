@@ -16,6 +16,6 @@ public class BumperWall : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		Debug.Log ("Bump");
-		other.rigidbody2D.AddForce (transform.up*50000f, ForceMode2D.Impulse);
+		other.rigidbody2D.AddForce (transform.up*35000f, ForceMode2D.Impulse);
 	}
 }
