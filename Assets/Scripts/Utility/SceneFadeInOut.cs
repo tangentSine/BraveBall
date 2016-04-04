@@ -4,88 +4,70 @@ using System.Collections;
 public class SceneFadeInOut : MonoBehaviour
 {
     public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
+    
+    
     private bool sceneStarting = true;      // Whether or not the scene is still fading in.
-    private bool changeScene = false;
-
-    private string sceneName = "";
-    private int sceneIndex = 0;
-
-//    [SerializeField]UITexture guiTex;
     
     
     void Awake ()
     {
-//		if(guiTex != null)
-//       	// Set the texture so that it is the the size of the screen and covers it.
-//       	guiTex.transform.localScale = new Vector3(2048, 2048, 1);
+        // Set the texture so that it is the the size of the screen and covers it.
+        guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
     }
-
-    IEnumerator FadeToClear ()
+    
+    
+    void Update ()
     {
-//        // Lerp the colour of the texture between itself and transparent.
-//        while(guiTex.color.a > 0.05f)
-//        {
-//			guiTex.color = Color.Lerp(guiTex.color, Color.clear, fadeSpeed * Time.deltaTime);
-//			yield return null;
-//		}
-//
-//		// ... set the colour to clear and disable the GUITexture.
-//		guiTex.color = Color.clear;
-//		guiTex.enabled = false;
-        
-        // The scene is no longer starting.
-//        sceneStarting = false;
-		yield return null;
+        // If the scene is starting...
+        if(sceneStarting)
+            // ... call the StartScene function.
+            StartScene();
     }
     
     
-    IEnumerator FadeToBlack (string name)
+    void FadeToClear ()
     {
-//    	while(guiTex.color.a < 0.95f)
-//    	{
-//	        // Lerp the colour of the texture between itself and black.
-//			guiTex.color = Color.Lerp(guiTex.color, Color.black, fadeSpeed * Time.deltaTime);
-//			yield return null;
-//		}
-		yield return null;
-		Application.LoadLevel(name);
+        // Lerp the colour of the texture between itself and transparent.
+        guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
     }
-	IEnumerator FadeToBlack (int index)
+    
+    
+    void FadeToBlack ()
     {
-//    	while(guiTex.color.a < 0.95f)
-//    	{
-//	        // Lerp the colour of the texture between itself and black.
-//			guiTex.color = Color.Lerp(guiTex.color, Color.black, fadeSpeed * Time.deltaTime);
-//			yield return null;
-//		}
-		yield return null;
-		Application.LoadLevel(index);
+        // Lerp the colour of the texture between itself and black.
+        guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
     }
     
     
-    public void StartScene ()
+    void StartScene ()
     {
         // Fade the texture to clear.
-        StartCoroutine(FadeToClear());
+        FadeToClear();
+        
+        // If the texture is almost clear...
+        if(guiTexture.color.a <= 0.05f)
+        {
+            // ... set the colour to clear and disable the GUITexture.
+            guiTexture.color = Color.clear;
+            guiTexture.enabled = false;
+            
+            // The scene is no longer starting.
+            sceneStarting = false;
+        }
     }
     
     
-    public void ChangeScene (string name)
+    public void EndScene ()
     {
-
         // Make sure the texture is enabled.
-		//guiTex.enabled = true;
-		sceneName = name;
-		// Start fading towards black.
-        StartCoroutine(FadeToBlack(name));
-    }
-
-    public void ChangeScene(int index)
-    {
-		// Make sure the texture is enabled.
-		//guiTex.enabled = true;
-		sceneIndex = index;
-
-		StartCoroutine(FadeToBlack(index));
+        guiTexture.enabled = true;
+        
+        // Start fading towards black.
+        FadeToBlack();
+        
+        // If the screen is almost black...
+        if(guiTexture.color.a >= 0.95f)
+            // ... reload the level.
+            Application.LoadLevel(0);
     }
 }
