@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 64edc59e7b29949f08783fb120463999
+guid: 8f6c0f07b870d4962854ed4156b396ad
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
@@ -43,5 +43,5 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites: []
-  spritePackingTag: Home
+  spritePackingTag: BottomMenu
   userData: 

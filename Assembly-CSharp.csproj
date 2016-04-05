@@ -58,10 +58,16 @@
      <Compile Include="Assets\Scripts\Battle\ScoreFx.cs" />
      <Compile Include="Assets\Scripts\Battle\StaticEnemy.cs" />
      <Compile Include="Assets\Scripts\Item\Item.cs" />
+     <Compile Include="Assets\Scripts\Service\HUDService.cs" />
+     <Compile Include="Assets\Scripts\Service\Service.cs" />
+     <Compile Include="Assets\Scripts\Town\Town.cs" />
      <Compile Include="Assets\Scripts\UI\ChangeScene.cs" />
+     <Compile Include="Assets\Scripts\UI\HUDHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\HomeMenu.cs" />
      <Compile Include="Assets\Scripts\Utility\CSingleton.cs" />
      <Compile Include="Assets\Scripts\Utility\SceneFadeInOut.cs" />
-     <Compile Include="Assets\Scripts\Utility\Service.cs" />
+     <Compile Include="Assets\Scripts\Utility\SceneManager.cs" />
+     <Compile Include="Assets\Scripts\Utility\Utility.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.9/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
