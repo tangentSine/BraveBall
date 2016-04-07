@@ -29,6 +29,7 @@ GameObject:
   - 222: {fileID: 22203814}
   - 114: {fileID: 11403812}
   - 95: {fileID: 9503814}
+  - 58: {fileID: 5811374}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -42,6 +43,17 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103812}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 5be6f0ae2a19b4d0383d4a20948a01a3, type: 2}
+  m_IsTrigger: 1
+  m_Radius: 20.3999996
+  m_Center: {x: -2.27999997, y: -16.4500008}
+--- !u!58 &5811374
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103814}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 5be6f0ae2a19b4d0383d4a20948a01a3, type: 2}
   m_IsTrigger: 0
@@ -115,7 +127,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -79.4000015, y: 361.5}
+  m_AnchoredPosition: {x: 13, y: 199}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22403814

@@ -165,7 +165,7 @@ PlayerSettings:
   psp2TrophyPackagePath: 
   psp2PackagedResourcesPath: 
   flashStrippingLevel: 2
-  spritePackerPolicy: DefaultPackerPolicy
+  spritePackerPolicy: TightPackerPolicy
   scriptingDefineSymbols: {}
   metroPackageName: Pinkball
   metroPackageLogo: 

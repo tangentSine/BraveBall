@@ -10,7 +10,8 @@ public class Curve : MonoBehaviour {
 	public enum BuildMode
 	{
 		Normal,
-		Bumper
+		Bumper,
+		ZelChain,
 	}
 
 
@@ -71,7 +72,7 @@ public class Curve : MonoBehaviour {
 			Transform child = transform.GetChild (i);
 			list.Add (child.localPosition);
 		}
-		
+
 		for (int count = 0; count <= slices; ++count) {
 			List<Vector3> pointList = new List<Vector3> ();
 			pointList.AddRange (list);
@@ -79,18 +80,34 @@ public class Curve : MonoBehaviour {
 				for (int i = 0; i < iterations-1; ++i) {
 					pointList.Add (Vector3.Lerp (pointList [i], pointList [i + 1], (float)count / slices));
 				}
-				
+			
 				for (int i = 0; i < iterations; ++i) {
 					pointList.RemoveAt (0);
 				}
 			}
-			
+		
 			outputList.Add (pointList [0]);
 		}
-		
-		for (int i = 0; i < outputList.Count-1; ++i) {
-			CreateWall (transform.localPosition+outputList[i], transform.localPosition+outputList[i+1], 4);
+
+		if (currentBuildMode == BuildMode.ZelChain) {
+			
+			GameObject obj = Instantiate (Resources.Load ("Prefab/Battle/ZelSpawner")) as GameObject;
+			obj.transform.SetParent (transform.parent);
+			obj.transform.localPosition = transform.localPosition;
+
+			ZelSpawner zelSpawner = obj.GetComponent<ZelSpawner> ();
+			zelSpawner.zelLocations = new Vector3[outputList.Count-1];
+			
+			for (int i = 0; i < outputList.Count-1; ++i) {
+				zelSpawner.zelLocations[i] = (outputList[i+1] + outputList[i])/2;
+			}
+			
+		} else {
+			for (int i = 0; i < outputList.Count-1; ++i) {
+				CreateWall (transform.localPosition + outputList [i], transform.localPosition + outputList [i + 1], 4);
+			}
 		}
+
 
 	}
 
@@ -104,8 +121,10 @@ public class Curve : MonoBehaviour {
 		GameObject obj;
 		if (currentBuildMode == BuildMode.Normal)
 			obj = Instantiate (Resources.Load ("Prefab/Battle/OverlapWall")) as GameObject;
-		else
+		else if (currentBuildMode == BuildMode.Bumper)
 			obj = Instantiate (Resources.Load ("Prefab/Battle/BumperWall")) as GameObject;
+		else
+			obj = Instantiate (Resources.Load ("Prefab/Battle/ZelDrop")) as GameObject;
 
 		obj.transform.SetParent (transform.parent);
 		Vector3 vec = to - from;
@@ -120,6 +139,8 @@ public class Curve : MonoBehaviour {
 		obj.transform.localRotation = Quaternion.FromToRotation (Vector3.right, vec);
 		obj.transform.localPosition = (from + to) / 2;
 
+		if (currentBuildMode == BuildMode.ZelChain)
+			return;
 		BoxCollider2D collider = obj.GetComponent<BoxCollider2D> ();
 		collider.size = newRect.sizeDelta;
 	}
