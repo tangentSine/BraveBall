@@ -15,7 +15,14 @@ public class BumperWall : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log ("Bump");
-		other.rigidbody2D.AddForce (transform.up*35000f, ForceMode2D.Impulse);
+		Vector3 pos = gameObject.transform.localPosition;
+		Transform transform = gameObject.transform.parent;
+
+		while (transform.GetComponent<Canvas>() == null) {
+			pos += transform.localPosition;
+			transform = transform.parent;
+		}
+
+		GameManager.Get().AddScore (3000, pos);
 	}
 }

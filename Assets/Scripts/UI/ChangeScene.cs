@@ -39,4 +39,29 @@ public class ChangeScene : MonoBehaviour {
 		if(m_anim != null)
 			m_anim.Play("PanelFadeOut");
 	}
+
+	public void ChangeToScene(string scene)
+	{
+		if(scene == Application.loadedLevelName)
+		{
+			Debug.Log("No Scene Change");
+			return;
+		}
+		
+		if(m_anim != null)
+		{
+			
+			m_anim.Play("PanelFadeIn");
+		}
+		
+		StartCoroutine(LevelLoad(scene));
+		
+	}
+	IEnumerator LevelLoad(string scene)
+	{
+		yield return new WaitForSeconds(1.0f);
+		Application.LoadLevel(scene);
+		if(m_anim != null)
+			m_anim.Play("PanelFadeOut");
+	}
 }

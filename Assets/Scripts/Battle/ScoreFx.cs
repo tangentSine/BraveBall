@@ -15,8 +15,12 @@ public class ScoreFx : MonoBehaviour {
 	
 	}
 
-	public void Initialize(float lifeTime, int score)
+	public void Initialize(float lifeTime, int score, bool isGold = false)
 	{
+		if (isGold)
+			scoreText.color = Color.yellow;
+		else
+			scoreText.color = Color.white;
 		scoreText.text = score.ToString ();
 		Destroy (gameObject, lifeTime);
 	}

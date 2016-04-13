@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StaticEnemy : Enemy {
 
 	[SerializeField]RawImage image;
+	[SerializeField]EnemyType enemyType;
 
 	bool isDefault = true;
 	bool isPlayingAnimation;
@@ -13,12 +14,13 @@ public class StaticEnemy : Enemy {
 	
 		isPlayingAnimation = false;
 		if (isDefault)
-			Initialize (EnemyType.Skeleton);
+			Initialize (enemyType);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (isPlayingAnimation == true && animation.isPlaying == false) {
+			ZelSpawner.CreateZelAt(new Vector3[]{transform.localPosition});
 			Destroy (gameObject);
 		}
 	}
@@ -27,6 +29,10 @@ public class StaticEnemy : Enemy {
 	{
 		if (enemyType == EnemyType.Skeleton) {
 			image.texture = Resources.Load ("Textures/skeleton") as Texture;
+			hp = 3;
+			invincibleTime = 2f;
+		} else if (enemyType == EnemyType.Bozdell) {
+			image.texture = Resources.Load ("Textures/Unit_ills_full_10262") as Texture;
 			hp = 3;
 			invincibleTime = 2f;
 		}

@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour {
 	{
 		Slime,
 		Skeleton,
+		Bozdell,
 	};
 
 

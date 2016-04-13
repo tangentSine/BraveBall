@@ -18,9 +18,13 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]GameObject[]		_layerObjects;
 
 	[SerializeField]Text				_scoreText;
+	[SerializeField]Text				_zelText;
 	[SerializeField]Text				_enemyText;
 
+	[SerializeField]ChangeScene			_changeScene;
+
 	int 								_score;
+	int									_zel;
 
 	int 								_lastEnemyCount;
 
@@ -40,19 +44,23 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ResetLayers ();
-		
-		_scoreText.text = "Score: " + _score;
+
+		_score = _zel = 0;
+
+		_scoreText.text = _score.ToString();
+		_zelText.text = _zel.ToString ();
 
 		_lastEnemyCount = GameObject.FindGameObjectsWithTag ("Enemy").Length;
-		_enemyText.text = "Enemies Left: " + _lastEnemyCount;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		int newCount = GameObject.FindGameObjectsWithTag ("Enemy").Length;
 		if (newCount != _lastEnemyCount) {
-			_enemyText.text = "Enemies Left: " + newCount;
+//			_enemyText.text = "Enemies Left: " + newCount;
 			if (newCount == 0){
+				ResultScene.SetTargetValues(_score, _zel, 20000, 2);
+				_changeScene.ChangeToScene("Result");
 				//Show battle end here
 			}
 		}
@@ -93,7 +101,7 @@ public class GameManager : MonoBehaviour {
 	public void AddScore(int score, Vector3 pos)
 	{
 		_score += score;
-		_scoreText.text = "Score: " + _score;
+		_scoreText.text = _score.ToString ();
 
 		GameObject scoreObj = Instantiate (Resources.Load ("Prefab/Battle/AddScore")) as GameObject;
 		scoreObj.transform.localPosition = pos;
@@ -101,6 +109,19 @@ public class GameManager : MonoBehaviour {
 
 		ScoreFx scoreFx = scoreObj.GetComponent<ScoreFx>();
 		scoreFx.Initialize (1f, score);
+	}
+
+	public void AddGold(int gold, Vector3 pos)
+	{
+		_zel += gold;
+		_zelText.text = _zel.ToString ();
+		
+		GameObject scoreObj = Instantiate (Resources.Load ("Prefab/Battle/AddScore")) as GameObject;
+		scoreObj.transform.localPosition = pos;
+		scoreObj.transform.SetParent (_fxLayer.transform, false);
+		
+		ScoreFx scoreFx = scoreObj.GetComponent<ScoreFx>();
+		scoreFx.Initialize (1f, gold, true);
 	}
 
 	void ResetLayers()

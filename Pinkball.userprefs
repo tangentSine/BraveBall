@@ -1,6 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/ChangeScene.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Battle/ZelSpawner.cs" Line="60" Column="37" />
+      <File FileName="Assets/Scripts/Battle/LayerSwitcher.cs" Line="17" Column="3" />
+      <File FileName="Assets/Scripts/Battle/GameManager.cs" Line="62" Column="40" />
+      <File FileName="Assets/Scripts/Battle/ScoreFx.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/Battle/ScoreAdder.cs" Line="14" Column="17" />
+      <File FileName="Assets/Scripts/Battle/ZelDrop.cs" Line="14" Column="4" />
+      <File FileName="Assets/Scripts/Battle/Curve.cs" Line="115" Column="3" />
+      <File FileName="Assets/Scripts/Editor/CurveEditor.cs" Line="13" Column="9" />
+      <File FileName="Assets/Scripts/Battle/StaticEnemy.cs" Line="20" Column="36" />
+      <File FileName="Assets/Scripts/Results/ResultScene.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/ChangeScene.cs" Line="49" Column="4" />
+      <File FileName="Assets/Scripts/Utility/SceneFadeInOut.cs" Line="71" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

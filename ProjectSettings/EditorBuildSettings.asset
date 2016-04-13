@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/BFBallV2.unity
   - enabled: 1
     path: Assets/Scenes/Town.unity
+  - enabled: 1
+    path: Assets/Scenes/Result.unity
