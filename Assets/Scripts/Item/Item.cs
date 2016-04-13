@@ -5,7 +5,6 @@ public struct daItem
 {
 	public string name;
 	public int item_id;
-	public int amt;
 	public int type;
 	public int skill_id;	
 };

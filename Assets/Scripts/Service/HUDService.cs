@@ -8,18 +8,20 @@ public class HUDService : CSingleton {
 	// Use this for initialization
 	void Awake () {
 		GameObject obj = GameObject.Find("HUD");
-		m_hudControl = obj.GetComponentInChildren<HUDHandler>();
+		if(obj != null)
+			m_hudControl = obj.GetComponentInChildren<HUDHandler>();
 	}
 
-	public void ShowTop(bool animate = false)
+	public void ShowTop(bool show, bool animate = false)
 	{
-		m_hudControl.ShowTop(animate);
+		m_hudControl.ShowTop(show, animate);
 	}
 
 	public void ShowBottom(bool show, bool animate = false)
 	{
-		m_hudControl.ShowBottom(show, animate);
+		m_hudControl.ToggleBottom(show, animate);
 	}
+
 
 
 }
