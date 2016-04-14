@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public class PlayerService : CSingleton {
 
 	Player m_player;
+	public Player player_stats
+	{
+		get{return m_player;}
+	}
 
 	BallList m_balltype;
 	void Awake()
@@ -27,11 +31,6 @@ public class PlayerService : CSingleton {
 	public void RemoveBall(int ball_id)
 	{
 		m_player.RemoveBall(ball_id);
-	}
-
-	public List<BallAsset> GetListOfBalls()
-	{
-		return m_player.BallList;
 	}
 
 }
