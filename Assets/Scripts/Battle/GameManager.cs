@@ -21,12 +21,21 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]Text				_zelText;
 	[SerializeField]Text				_enemyText;
 
+	[SerializeField]GameObject			_buttonItemClose;
+	[SerializeField]GameObject			_buttonItemOpen;
+	[SerializeField]TweenPos			_itemTween;
+	[SerializeField]Text				_itemAmtText;
+
 	[SerializeField]ChangeScene			_changeScene;
 
 	int 								_score;
 	int									_zel;
 
 	int 								_lastEnemyCount;
+
+	int 								_itemCount;
+
+	bool								_isPaused;
 
 	static GameManager					_gameManager;
 
@@ -51,6 +60,16 @@ public class GameManager : MonoBehaviour {
 		_zelText.text = _zel.ToString ();
 
 		_lastEnemyCount = GameObject.FindGameObjectsWithTag ("Enemy").Length;
+
+		Service.Get<HUDService> ().ShowTop (false);
+		Service.Get<HUDService> ().ShowBottom (false);
+
+		_buttonItemClose.SetActive (false);
+
+		_itemCount = 99;
+		_itemAmtText.text = "x" + _itemCount;
+
+		_isPaused = false;
 	}
 
 	// Update is called once per frame
@@ -66,6 +85,12 @@ public class GameManager : MonoBehaviour {
 		}
 		_lastEnemyCount = newCount;
 	
+	}
+
+	void Pause(bool pause)
+	{
+		Time.timeScale = pause ? 0 : 1f;
+		_isPaused = pause;
 	}
 
 	public void OnLeftFlipperDown()
@@ -96,6 +121,39 @@ public class GameManager : MonoBehaviour {
 	{
 		_ballObject.rigidbody2D.AddForce (new Vector2(0,_launchForce), ForceMode2D.Impulse);
 		Debug.Log ("Launching");
+	}
+
+	public void OnItemOpen()
+	{
+		_buttonItemClose.SetActive (true);
+		_buttonItemOpen.SetActive (false);
+
+		_itemTween.Play (true);
+		Pause (true);
+	}
+
+	public void OnItemClose()
+	{
+		_buttonItemClose.SetActive (false);
+		_buttonItemOpen.SetActive (true);
+
+		_itemTween.Play (false);
+		Pause (false);
+	}
+
+	public void OnItemUse()
+	{
+		_itemAmtText.text = "x" + --_itemCount;
+		
+		GameObject obj = Instantiate (Resources.Load ("Prefab/Battle/BallBlocker")) as GameObject;
+		obj.transform.SetParent (_fxLayer.transform);
+		obj.transform.localPosition = new Vector3 (0, -340);
+		//Create wall here
+	}
+
+	public void OnPause()
+	{
+		Pause (!_isPaused);
 	}
 
 	public void AddScore(int score, Vector3 pos)
