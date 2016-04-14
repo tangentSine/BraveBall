@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b11f2866fd7864e948b27365137c3e97
+guid: 94ad263669e1c4117a6cc1a1181de8ba
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -43,5 +43,5 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites: []
-  spritePackingTag: 
+  spritePackingTag: Setup
   userData: 
