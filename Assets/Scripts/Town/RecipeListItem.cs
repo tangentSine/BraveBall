@@ -29,6 +29,8 @@ public class RecipeListItem : MonoBehaviour
 
 		img.sprite = RecipeSprites.SpriteMap["id_" + id];
 
+
+		Debug.Log("Assigning Button listener");
 		btn.onClick.AddListener( ()=>twn.SwitchCrafting(_name, _stats, _desc,  id));
 
 	}

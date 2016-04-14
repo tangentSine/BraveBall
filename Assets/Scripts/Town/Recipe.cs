@@ -27,14 +27,22 @@ public class Recipe : MonoBehaviour {
 	List<MaterialsRequired> requirement;
 
 
-	public void Init(string _name, string _stats, string _desc, int id)
+	int id;
+	PlayerService player;
+
+	void Awake()
+	{
+		player = Service.Get<PlayerService>();
+	}
+
+	public void Init(string _name, string _stats, string _desc, int _id)
 	{
 		name.text = _name;
 		stats.text = _stats;
 		desc.text = _desc;
 		RecipeSprites = Resources.Load("Data/TownAssetData") as SpriteAssetList;
 		RecipeSprites.Init();
-
+		id = _id;
 		img.sprite = RecipeSprites.SpriteMap["id_" + id];
 
 		// HACK
@@ -64,14 +72,10 @@ public class Recipe : MonoBehaviour {
 		}
 	}
 
+	public void Craft()
+	{
+		// Reduce Player materials
+		player.AddBall(id);
+	}
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

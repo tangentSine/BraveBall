@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{2F909C11-5F84-3D33-39EA-E9A82BD8511C}</ProjectGuid>
+	<ProjectGuid>{A89C636B-2AAA-99F7-7436-4EF0641E67F8}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,6 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Ball\BallAsset.cs" />
+     <Compile Include="Assets\Scripts\Ball\BallList.cs" />
+     <Compile Include="Assets\Scripts\Ball\MakeBallList.cs" />
      <Compile Include="Assets\Scripts\Battle\Ball.cs" />
      <Compile Include="Assets\Scripts\Battle\BallCatcher.cs" />
      <Compile Include="Assets\Scripts\Battle\BallHider.cs" />
@@ -61,6 +64,8 @@
      <Compile Include="Assets\Scripts\Battle\ZelDrop.cs" />
      <Compile Include="Assets\Scripts\Battle\ZelSpawner.cs" />
      <Compile Include="Assets\Scripts\Item\Item.cs" />
+     <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerService.cs" />
      <Compile Include="Assets\Scripts\Results\ResultScene.cs" />
      <Compile Include="Assets\Scripts\Service\HUDService.cs" />
      <Compile Include="Assets\Scripts\Service\Service.cs" />

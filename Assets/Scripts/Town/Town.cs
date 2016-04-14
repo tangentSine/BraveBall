@@ -69,7 +69,9 @@ public class Town : MonoBehaviour {
 			list.endOfEventCallBack = OnSwitchToRecipe;
 		}
 
+
 		GameObject obj = Instantiate(Resources.Load("Prefab/Town/RecipePage")) as GameObject;
+		Debug.Log("Switch Crafting" + obj);
 		if(obj != null)
 		{
 			obj.transform.SetParent(m_CanvasParent, false);
@@ -98,7 +100,12 @@ public class Town : MonoBehaviour {
 
 	void OnSwitchToRecipe()
 	{
-		OnCloseCrafting();
+		if(list != null)
+		{
+			Destroy(list.gameObject);
+			list = null;
+		}
+
 		if(header != null)
 		{
 			header.Play(true); 
