@@ -10,6 +10,8 @@ public class ZelDrop : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (animation.isPlaying == false)
+			animation.Play ();
 	
 	}	
 

@@ -6,6 +6,7 @@ public class StaticEnemy : Enemy {
 
 	[SerializeField]RawImage image;
 	[SerializeField]EnemyType enemyType;
+	[SerializeField]ZelSpawner spawner;
 
 	bool isDefault = true;
 	bool isPlayingAnimation;
@@ -20,6 +21,9 @@ public class StaticEnemy : Enemy {
 	// Update is called once per frame
 	void Update () {
 		if (isPlayingAnimation == true && animation.isPlaying == false) {
+			if (spawner != null)
+				spawner.CreateZel ();
+
 			ZelSpawner.CreateZelAt(new Vector3[]{transform.localPosition});
 			Destroy (gameObject);
 		}
@@ -54,7 +58,7 @@ public class StaticEnemy : Enemy {
 
 	protected override void OnDestroyed(){
 		animation.Play ();
-			isPlayingAnimation = true;
+		isPlayingAnimation = true;
 	}
 }
 

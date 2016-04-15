@@ -10,6 +10,10 @@ public class HUDService : CSingleton {
 		GameObject obj = GameObject.Find("HUD");
 		if(obj != null)
 			m_hudControl = obj.GetComponentInChildren<HUDHandler>();
+		else{
+			obj = GameObject.Instantiate(Resources.Load ("Prefab/Menu/HUD")) as GameObject;
+			m_hudControl = obj.GetComponentInChildren<HUDHandler>();
+		}
 	}
 
 	public void ShowTop(bool show, bool animate = false)

@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]TweenPos			_itemTween;
 	[SerializeField]Text				_itemAmtText;
 
+	[SerializeField]ZelSpawner[]		_scoreZelSpawners;
+	[SerializeField]int[]				_scoresForZel;
+
+	int 								_scoreLv;
+
 	[SerializeField]ChangeScene			_changeScene;
 
 	int 								_score;
@@ -54,7 +59,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		ResetLayers ();
 
-		_score = _zel = 0;
+		_score = _zel = _scoreLv = 0;
 
 		_scoreText.text = _score.ToString();
 		_zelText.text = _zel.ToString ();
@@ -82,6 +87,11 @@ public class GameManager : MonoBehaviour {
 				_changeScene.ChangeToScene("Result");
 				//Show battle end here
 			}
+		}
+
+		if (_scoreLv < _scoresForZel.Length && _score > _scoresForZel [_scoreLv]) {
+			_scoreZelSpawners[_scoreLv].CreateZel ();
+			_scoreLv++;
 		}
 		_lastEnemyCount = newCount;
 	
